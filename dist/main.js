@@ -48,6 +48,7 @@ const drh_service_1 = require("./service/drh_service");
 const dotenv_1 = require("dotenv");
 const xlsx_1 = __importDefault(require("xlsx"));
 const moment_1 = __importDefault(require("moment"));
+const arsip_service_1 = require("./service/arsip_service");
 (0, dotenv_1.configDotenv)({
     override: true
 });
@@ -124,7 +125,7 @@ async function execute(userInfo, targetNIP, opt) {
         xlsx_1.default.utils.book_append_sheet(workBook, dataPokokSheet, "data_pokok");
         xlsx_1.default.utils.book_append_sheet(workBook, identitasSheet, "identitas");
         //write to file
-        await xlsx_1.default.writeFileAsync(`./${(0, moment_1.default)().format("YYYYMMDD_HHmmss_data.xlsx")}`, workBook, {});
+        xlsx_1.default.writeFile(workBook, `./${(0, moment_1.default)().format("YYYYMMDD_HHmmss")}_data.xlsx`);
     }
     catch (err) {
         console.info(`Error Occurred ${err}`);
@@ -143,6 +144,9 @@ async function getByNIP(client, targetNIP, opt) {
         if (opt?.getIdentitas) {
             let result = await drh_service_1.DRHService.getIdentitasByNIP(client, targetNIP);
             returnValue.identitas = result;
+        }
+        if (opt?.getArsipAsli) {
+            await arsip_service_1.ArsipService.getArsipAsliByNIP(client, targetNIP);
         }
         console.info(`Get Data ${targetNIP} Success.`);
         return returnValue;
@@ -168,7 +172,8 @@ async function main(userInfo, targetNIPs) {
     let arrayNIPs = targetNIPs.split(",").map((el) => el.trim());
     await execute(userInfo, arrayNIPs, {
         getDataPokok: true,
-        getIdentitas: true
+        getIdentitas: true,
+        getArsipAsli: true
     });
 }
 main({
