@@ -2,7 +2,7 @@
 
 ## Installation
 
-### 1. Clone or Update the Project
+### 1. Clone or Get the Project
 
 Download this project or pull it in your local:
 
