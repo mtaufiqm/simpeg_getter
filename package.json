@@ -1,0 +1,27 @@
+{
+  "name": "simpeg_getter",
+  "version": "1.0.0",
+  "description": "Application to retrieve your data from Simpeg (and also data of other employees) through the API provided by the Simpeg developers. This is not hacking, it simply demonstrates a serious security vulnerability in the ***peg application. This App will continue to work unless the ***peg developers change the API, which I hope they do. This issue highlights a concerning fact that our data has potentially been accessible to other users for years, and it may already have been exposed without our knowledge.",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx tsx ./src/main.ts"
+  },
+  "author": "Muh. Taufiq Mukhtar (Super Junior Developer 😂)",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/dotenv": "^6.1.1",
+    "@types/node": "^25.9.3",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "axios": "^1.17.0",
+    "axios-cookiejar-support": "^7.0.0",
+    "cheerio": "^1.2.0",
+    "dotenv": "^17.4.2",
+    "moment": "^2.30.1",
+    "tough-cookie": "^6.0.1",
+    "xlsx": "^0.18.5"
+  }
+}
