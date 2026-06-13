@@ -38,17 +38,17 @@ Create a `.env` file in the project root with the following content:
 ```env
 USERNAME="UserSSO"
 PASSWORD="PasswordSSO"
-TARGET_NIP="TargetOldNIP"
+NIP_TARGET="TargetOldNIP"
 ```
 
 **Note:**
 
-- `TARGET_NIP` is Old NIP (9 Digit) or called B*S NIP and can contain multiple NIPs separated by commas (`,`).
+- `NIP_TARGET` is Old NIP (9 Digit) or called B*S NIP and can contain multiple NIPs separated by commas (`,`).
 
 **Example:**
 
 ```env
-TARGET_NIP="123456789,987654321,112233445"
+NIP_TARGET="123456789,987654321,112233445"
 ```
 
 ### 4. Connect to VPN
